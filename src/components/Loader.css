@@ -1,0 +1,45 @@
+.svg-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pulsate-svg {
+    animation: pulse 2.5s ease-in-out infinite;
+}
+
+.svg-path {
+    stroke: #f97316;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    animation: dash 3s linear forwards;
+}
+
+@keyframes dash {
+    from {
+        stroke-dashoffset: 1000;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.4);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

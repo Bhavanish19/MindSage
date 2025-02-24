@@ -1,0 +1,43 @@
+{
+  "author": {
+    "name": "Bhavanish Dhamnaskar",
+    "email": "dbhavanish23@gmail.cpm",
+    "city": "Boston",
+    "country": "USA",
+    "avatar_url": "/images/bhavanish.jpg",
+    "current_role": "Software Engineer",
+    "current_job": " ",
+    "current_job_url": " https://fitcopilot.ai/ ",
+    "linkedin_url": "https://www.linkedin.com/in/dbhavanish/",
+    "github_url": "https://github.com/Bhavanish19",
+    "brief_1": "I am dedicated to fostering a vibrant and engaging work environment where creativity and enthusiasm thrive.",
+    "brief_2": "I find purpose in transforming everyday office experiences into memorable moments and ensuring that every team member feels valued and motivated.",
+    "meta_summary": "Experienced office manager with a knack for unconventional leadership and team-building. Let's explore how I can bring creativity and enthusiasm to your organization."
+  },
+
+ 
+
+ 
+    "mentalHealthTestimonials": [
+      {
+        "text": "The beauty of a drama-free life hits different when you finally choose peace over proving points. That shit changed my whole perspective.",
+        "author": "Life Journey, Day 143"
+      },
+      {
+        "text": "Spent years trying to please everyone else until I hit rock bottom. Now I know - you gotta put your oxygen mask on first. That's not selfish, that's survival.",
+        "author": "Recovery Path Notes"
+      },
+      {
+        "text": "Look at you! Out here making it. Figuring shit out as you go. Pushing through fear. Through anxiety. Learning from fuck-ups. It's not pretty, it's not fun, but you're doing it.",
+        "author": "Real Talk Diary"
+      },
+      {
+        "text": "When that inner voice kept saying 'you're not enough' - I finally learned to tell it to shut up. Your emotions are temporary, but that strength you build? That's forever.",
+        "author": "Midnight Thoughts"
+      },
+      {
+        "text": "Stop comparing your journey with somebody else's... Not all flowers bloom at the same time. Some of us are late bloomers and that's okay. Be patient with your process.",
+        "author": "Growth Notes"
+      }
+  ]
+}

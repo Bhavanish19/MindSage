@@ -1,0 +1,177 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mongodb"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+ 
+
+
+enum Role {
+  user
+  model
+}
+
+enum Frequency {
+  DAILY
+  WEEKLY
+  MONTHLY
+  RARELY
+}
+
+ 
+
+enum SymptomName {
+    ANXIETY
+    STRESS
+    DEPRESSION
+    FATIGUE
+    INSOMNIA
+    IRRITABILITY
+    MOOD_SWINGS
+    LACK_OF_MOTIVATION
+    DIFFICULTY_CONCENTRATING
+    SOCIAL_WITHDRAWAL
+    RESTLESSNESS
+}
+
+
+enum Adherence {
+  ALWAYS
+  OFTEN
+  SOMETIMES
+  NEVER
+  RARELY
+}
+
+enum Mood {
+  HAPPY
+  SAD
+  ANGRY
+  ANXIOUS
+  STRESSED
+  NEUTRAL
+}
+
+enum Sleep {
+  GOOD
+  BAD
+  AVERAGE
+}
+
+enum Stress {
+  NOT_STRESSED
+  SLIGHTLY
+  MODERATELY
+  HIGHLY
+  EXTREMELY
+}
+
+
+model User {
+  id         String  @id @map("_id")
+  age        BigInt?
+  bloodGroup String?
+  clerkId    String  @unique
+
+  email     String  @unique
+  firstName String
+  gender    String?
+  height    BigInt?
+  image     String
+  lastName  String
+  weight    BigInt?
+  medicalIssues String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  symptoms       Symptom[]
+  medications    Medication[]
+  mentalwellness MentalWellness[]
+  messages       Message[]
+  activities     Activity[]
+}
+ 
+
+// step 2
+model Symptom {
+  id        String      @id @default(cuid()) @map("_id")
+  userId    String
+  name      SymptomName // here i want if if the user selects other then the predefined symptoms then he can enter his own symptom
+  intensity Int // Intensity level from 1 to 10
+  frequency Frequency //how often the symptom occurs
+  loggedAt  DateTime?   @default(now()) // When the symptom was logged
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+ 
+
+// step 3
+model Medication {
+  id        String    @id @default(cuid()) @map("_id")
+  userId    String
+  name      String // Name of the medication
+  dosage    String // Dosage of the medication
+  purpose   String? // Purpose of the medication
+  frequency Frequency // Frequency of the medication
+  adherence Adherence // Whether the user is adhering to the medication
+  startDate DateTime? // When the medication was started
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+ 
+
+// step 4
+model MentalWellness {
+  id        String  @id @default(cuid()) @map("_id")
+  userId    String
+  mood      Mood
+  happiness Int
+  sleep     Sleep
+  stress    Stress
+  anxiety   String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+//chat ! 
+model Message {
+  id        String   @id @default(cuid()) @map("_id")
+  role      Role
+  userId    String
+  content   String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+ 
+model Activity {
+  id          String   @id @default(cuid()) @map("_id")
+  userId      String   @map(name: "user_id")
+  name        String
+  description String? // Optional description for the activity
+  color_code  String   @map(name: "color_code") // Color code for the activity
+  createdAt   DateTime @default(now()) @map(name: "created_at")
+  updatedAt   DateTime @updatedAt @map(name: "updated_at")
+
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  activityLogs ActivityLog[] // Relation to ActivityLog
+
+  @@map(name: "activities")
+}
+
+model ActivityLog {
+  id         String   @id @default(cuid()) @map("_id")
+  activityId String   @map(name: "activity_id")
+  date       DateTime @default(now()) // Date the activity was logged
+  count      Int      @default(1) // Count of activity instances
+  activity   Activity @relation(fields: [activityId], references: [id], onDelete: Cascade)
+
+  @@map(name: "activity_log")
+}

@@ -8,6 +8,7 @@ import { DevLoomImage } from "@/components/explore/DevLoomImage";
 import { Showtext } from "@/components/magic/Showtext";
 
 import { MindSageTitle } from "@/components/explore/MindSageTitle";
+// import { MindWellTitle } from "@/components/explore/MindWellTitle";
 
 import { GradualSpacingDemo } from "@/components/magic/GradualSpacing";
 import Link from "next/link";

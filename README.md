@@ -34,7 +34,15 @@ MindSage is an **AI-powered mental health assistant** designed to provide **real
 - Prisma  
 
 ### **AI Integration**
-- Gemini API / Google Generative AI  
+- Gemini API / Google Generative AI
+
+🎥 Video Demo
+
+🔹 Watch the full demonstration of the Showcase AI Agent in action:
+
+https://drive.google.com/file/d/1Dn24yt3q6vZWLx062NZ1VZ1DMAinXpyP/view?usp=drive_link
+
+
 
 ## 📁 Project Structure
 
